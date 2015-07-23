@@ -1,6 +1,6 @@
 def stock_picker(prices)
   max_so_far = max_ending_here = 0
-  array = [0,0]
+  buy_sell = [0,0]
   prices.each_with_index do |p, i|
     if i != prices.length - 1
       old_max_so_far = max_so_far
@@ -10,12 +10,12 @@ def stock_picker(prices)
       if max_so_far != old_max_so_far
         array[1] = i + 1
         if old_max_ending_here == 0
-          array = [i, i + 1]
+          buy_sell = [i, i + 1]
         end
       end
     end
   end
-  return array
+  return buy_sell
 end
 
 puts "Enter list of stock prices separated by a comma:"
